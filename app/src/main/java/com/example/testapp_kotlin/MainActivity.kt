@@ -39,7 +39,6 @@ import com.example.testapp_kotlin.FCM.NotificationViewModel
 import com.example.testapp_kotlin.Screeen.ViewModelManager
 
 class MainActivity : ComponentActivity() {
-
     // FCM 알림 관찰하는 ViewModel 객체 세팅
     private val notificationViewModel = NotificationViewModel()
 
@@ -58,7 +57,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // FCM 관련 함수
         // 푸시 알림 권한 요청
         requestNotificationPermission()
