@@ -8,7 +8,6 @@ class NotificationViewModel : ViewModel() {
     // ============ 필요한 객체 선언 ===============
     /// 단일 알림 데이터
     private val _notificationData = MutableStateFlow<NotificationData?>(null)
-    val notificationData: StateFlow<NotificationData?> = _notificationData
 
     // 알림 목록을 관리할 리스트
     private val _notificationList = MutableStateFlow<List<NotificationData>>(emptyList())
@@ -17,10 +16,16 @@ class NotificationViewModel : ViewModel() {
     // 알림 데이터 업데이트 함수
     fun updateNotificationData(title: String, body: String) {
         val newNotification = NotificationData(title, body)
+        val currentList = _notificationList.value.toMutableList()
+
+        // 같은 데이터가 있는지 체크 한다
+        val isDuplicate = currentList.contains(newNotification)
+        if (isDuplicate)
+            return
+
         _notificationData.value = newNotification
 
         // 목록에도 추가
-        val currentList = _notificationList.value.toMutableList()
         currentList.add(0, newNotification) // 새 알림을 목록 맨 위에 추가
         _notificationList.value = currentList
     }

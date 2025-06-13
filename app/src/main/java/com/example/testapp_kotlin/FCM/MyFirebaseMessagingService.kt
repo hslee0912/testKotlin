@@ -126,17 +126,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // 예: Retrofit을 사용한 API 호출
     }
 
-//    private fun scheduleJob(data: Map<String, String>) {
-//        // 데이터 메시지를 처리하기 위한 WorkManager 작업 예약
-//        val workRequest = OneTimeWorkRequestBuilder<FCMWorker>()
-//            .setInputData(
-//                workDataOf("data" to JSONObject(data).toString())
-//            )
-//            .build()
-//
-//        WorkManager.getInstance(this).enqueue(workRequest)
-//    }
-
     companion object {
         private const val TAG = "FCMService"
     }
