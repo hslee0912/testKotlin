@@ -18,11 +18,6 @@ class NotificationViewModel : ViewModel() {
         val newNotification = NotificationData(title, body)
         val currentList = _notificationList.value.toMutableList()
 
-        // 같은 데이터가 있는지 체크 한다
-        val isDuplicate = currentList.contains(newNotification)
-        if (isDuplicate)
-            return
-
         _notificationData.value = newNotification
 
         // 목록에도 추가
